@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import path from "path"
 
-const srcFolder = path.join(__dirname, 'node_modules', 'onnxruntime-web', 'dist');
+const srcFolder = path.join(__dirname, 'node_modules', 'onnxruntime-web', 'docs');
 const destFolder = path.join(__dirname, 'public');
 const assetFolder = path.join(__dirname, 'src', 'assets');
 
@@ -48,6 +48,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
   },
 });
