@@ -25,33 +25,39 @@
 </template>
 
 <script lang="ts">
-
 import { defineComponent } from "vue";
+import mobilenetImage from "/assets/mobilenet.png";
+import squeezenetImage from "/assets/squeezenet.png";
+import mnistImage from "/assets/mnist.png";
+import yoloImage from "/assets/yolo.png";
+import emotionImage from "/assets/emotion.png";
+import backgroundImage from "/assets/background.png";
+
 const DEMO_INFO = [
   {
     title: "MobileNet, trained on ImageNet",
     path: "mobilenet",
-    imagePath: "/assets/mobilenet.png",
+    imagePath: mobilenetImage,
   },
   {
     title: "SqueezeNet, trained on ImageNet",
     path: "squeezenet",
-    imagePath: "/assets/squeezenet.png",
+    imagePath: squeezenetImage,
   },
   {
     title: "MNIST",
     path: "MNIST",
-    imagePath: "/assets/mnist.png",
+    imagePath: mnistImage,
   },
   {
     title: "YoLo",
     path: "YoLo",
-    imagePath: "/assets/yolo.png",
+    imagePath: yoloImage,
   },
   {
     title: "Emotion Recognition",
     path: "emotion",
-    imagePath: "/assets/emotion.png",
+    imagePath: emotionImage,
   },
 ];
 
@@ -62,7 +68,7 @@ export default defineComponent({
       DEMO_INFO;
     
     function getImageSource(): string{
-      return '/assets/background.png';
+      return backgroundImage;
     };
 
     return {

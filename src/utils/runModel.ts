@@ -1,7 +1,7 @@
-import {InferenceSession, Tensor} from 'onnxruntime-web';
+import {InferenceSession, Tensor, env} from 'onnxruntime-web';
 
 function init() {
-  // env.wasm.simd = false;
+  env.wasm.wasmPaths = import.meta.env.BASE_URL;
 }
 
 export async function createModelCpu(model: ArrayBuffer): Promise<InferenceSession> {

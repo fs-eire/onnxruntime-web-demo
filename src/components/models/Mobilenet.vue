@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+
 import ndarray from "ndarray";
 import ops from "ndarray-ops";
 import ImageModelUI from "../common/ImageModelUI.vue";
@@ -16,11 +17,9 @@ import { Tensor } from "onnxruntime-web";
 import type { ClassResult } from "../../utils/imagenet";
 import { MOBILENET_IMAGE_URLS } from "../../data/sample-image-urls";
 import { imagenetUtils, mathUtils } from "../../utils/index";
-
 import { defineComponent } from "vue";
-// import type { PropType } from "vue";
 
-const MODEL_FILEPATH = "/assets/Models/mobilenetv2-7.onnx";
+const MODEL_FILEPATH = import.meta.env.BASE_URL === '/' ? "/assets/Models/mobilenetv2-7.onnx":"/onnxruntime-web-demo/assets/Models/mobilenetv2-7.onnx";
 
 export default defineComponent({
   name: "MobileNet",

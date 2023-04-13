@@ -22,8 +22,7 @@ import { runModelUtils, yolo, yoloTransforms } from "../../utils/index";
 import { YOLO_IMAGE_URLS } from "../../data/sample-image-urls";
 import { Tensor, InferenceSession } from "onnxruntime-web";
 
-const MODEL_FILEPATH =
-  "/assets/Models/yolo.onnx";
+const MODEL_FILEPATH = import.meta.env.BASE_URL === '/' ? "/assets/Models/yolo.onnx":"/onnxruntime-web-demo/assets/Models/yolo.onnx";
 
 // export default class WebcamModelUI extends Vue {
 export default defineComponent({

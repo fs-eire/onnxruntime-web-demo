@@ -18,7 +18,7 @@ import { imagenetUtils, mathUtils } from "../../utils/index";
 import { defineComponent } from "vue";
 import type { ClassResult } from "../../utils/imagenet";
 
-const MODEL_FILEPATH = "/assets/Models/squeezenet1_1.onnx";
+const MODEL_FILEPATH = import.meta.env.BASE_URL === '/' ? "/assets/Models/squeezenet1_1.onnx":"/onnxruntime-web-demo/assets/Models/squeezenet1_1.onnx";
 
 export default defineComponent({
   name: "SqueezeNet",

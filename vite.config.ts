@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import path from "path"
 
-const srcFolder = path.join(__dirname, 'node_modules', 'onnxruntime-web', 'docs');
+const srcFolder = path.join(__dirname, 'node_modules', 'onnxruntime-web', 'dist');
 const destFolder = path.join(__dirname, 'public');
 const assetFolder = path.join(__dirname, 'src', 'assets');
 
@@ -42,11 +42,13 @@ export default defineConfig({
       ]
     })
   ],
+  publicDir: 'public',
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@": fileURLToPath(new URL("./", import.meta.url)),
     },
   },
+  base: process.env.NODE_ENV === 'production' ? '/onnxruntime-web-demo/' : '/',
   build: {
     outDir: 'docs',
   },
