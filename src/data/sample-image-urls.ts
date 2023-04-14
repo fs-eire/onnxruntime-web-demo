@@ -107,30 +107,30 @@ export const SQUEEZENET_IMAGE_URLS = [
 ];
 
 export const EMOTION_IMAGE_URLS = [
-  { text: "happy girl", value: "/assets/EmotionSampleImages/happy.jpg" },
+  { text: "happy girl", value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/happy.jpg" },
   {
     text: "angry man",
-    value: "/assets/EmotionSampleImages/angry_man.jpg",
+    value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/angry_man.jpg",
   },
   {
     text: "angry baby",
-    value: "/assets/EmotionSampleImages/angry_baby.jpg",
+    value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/angry_baby.jpg",
   },
   {
     text: "suprised boy",
-    value: "/assets/EmotionSampleImages/surprised_boy.jpg",
+    value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/surprised_boy.jpg",
   },
   {
     text: "suprised woman",
-    value: "/assets/EmotionSampleImages/surprised_woman.jpg",
+    value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/surprised_woman.jpg",
   },
-  { text: "sad baby", value: "/assets/EmotionSampleImages/sad_baby.jpg" },
-  { text: "sad baby 2", value: "/assets/EmotionSampleImages/sad_baby2.jpg" },
-  { text: "fear", value: "/assets/EmotionSampleImages/fear.jpg" },
-  { text: "neutral girl", value: "/assets/EmotionSampleImages/neutral.jpg" },
+  { text: "sad baby", value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/sad_baby.jpg" },
+  { text: "sad baby 2", value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/sad_baby2.jpg" },
+  { text: "fear", value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/fear.jpg" },
+  { text: "neutral girl", value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/neutral.jpg" },
   {
     text: "neutral girl 2",
-    value: "/assets/EmotionSampleImages/neutral_girl.jpg",
+    value: (import.meta.env.BASE_URL==='/' ? '':'/onnxruntime-web-demo/')+"/assets/EmotionSampleImages/neutral_girl.jpg",
   },
 ];
 
