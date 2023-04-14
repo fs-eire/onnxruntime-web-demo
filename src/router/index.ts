@@ -42,6 +42,11 @@ const routes = [
     path: '/:pathMatch(.*)*',
     redirect: "/"
   },
+  {
+    // path: "*",
+    path: "/:catchAll(.*)",
+    redirect: "/"
+  },
 ];
 
 const router = createRouter({history: createWebHistory(import.meta.env.BASE_URL),routes});
