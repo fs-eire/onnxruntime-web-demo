@@ -1,16 +1,4 @@
 <IfModule mod_rewrite.c>
-    Options +FollowSymLinks -MultiViews
     RewriteEngine On
-    # Rewrite rule for vue
-        RewriteCond %{REQUEST_URI} !^/crowd/
-        RewriteCond %{REQUEST_URI} !^/podcaster/
-        RewriteRule (.+) /vue/$1 [L]
-
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-    RewriteBase /
-
-    RewriteRule ^index\.php$ - [L]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /index.php [L]
+    RewriteRule ^$ /product [L]
 </IfModule>
