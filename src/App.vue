@@ -63,7 +63,7 @@ export default defineComponent({
 
     function currentView() {
       const path = $route.currentRoute.value.path;
-      console.log(path);
+      // console.log(path);
       return path.replace(/^\//, "") || "home";
     }
 
