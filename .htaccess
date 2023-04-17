@@ -1,11 +1,16 @@
-<IfModule mod_negotiation.c>
-    Options -MultiViews
-</IfModule>
-
 <IfModule mod_rewrite.c>
+    Options +FollowSymLinks -MultiViews
     RewriteEngine On
-    RewriteRule ^index.html$ - [L]
+    # Rewrite rule for vue
+        RewriteCond %{REQUEST_URI} !^/crowd/
+        RewriteCond %{REQUEST_URI} !^/podcaster/
+        RewriteRule (.+) /vue/$1 [L]
+
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteBase /
+
+    RewriteRule ^index\.php$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . index.html [L]
+    RewriteRule . /index.php [L]
 </IfModule>
