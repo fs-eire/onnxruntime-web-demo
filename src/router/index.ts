@@ -43,7 +43,6 @@ const routes = [
     redirect: "/"
   },
   {
-    // path: "*",
     path: "/:catchAll(.*)",
     redirect: "/"
   },

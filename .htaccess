@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    Options -Indexes
+    
     RewriteEngine On
-    RewriteBase /subdirectoryName
-    RewriteRule ^subdirectoryName/index\.html$ - [L]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /subdirectoryName/index.html [L]
+    RewriteRule \.(js|css|map|jpe?g|svg|gif|png|eot|ttf|woff2?)(\?.*)?$ - [NC,QSA,L]
+    RewriteRule .* index.html [NC,QSA,L]
 </IfModule>
