@@ -42,10 +42,6 @@ const routes = [
     path: '/:pathMatch(.*)*',
     redirect: "/"
   },
-  {
-    path: "/:catchAll(.*)",
-    redirect: "/"
-  },
 ];
 
 const router = createRouter({
