@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <v-app>
-      <v-navigation-drawer v-model="showNav" absolute floating app>
-        <MainMenu :currentView="currentView()"></MainMenu>
+      <v-navigation-drawer v-model="showNav" app>
+        <MainMenu :currentView="currentView()" @click.stop="toggleBar()"></MainMenu>
       </v-navigation-drawer>
       <v-toolbar app dark flat color="primary">
         <v-app-bar-nav-icon @click.stop="toggleBar()"></v-app-bar-nav-icon>
@@ -115,34 +115,39 @@ export default defineComponent({
 }
 
 .application.theme--light {
-  background: linear-gradient(0deg, #cccccc, #f0f0f0) !important;
+  background: linear-gradient(0deg, #070606, #f0f0f0) !important;
   color: var(--color-darkgray);
 }
 
-
 footer {
-  background: #cccccc !important;
+  background: #3d3a3a !important;
 }
 
 .footer-label {
-  font-family: var(--font-sans-serif);
-  font-size: 10px;
-  color: var(--color-lightgray);
+  font-family: Segoe UI Semibold, Open Sans, -apple-system, BlinkMacSystemFont,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-size: 16px;
+  color: #69707a;
+  align-content: center;
   text-align: center;
   user-select: none;
   cursor: default;
-  width: 40%;
-  margin: 0 25% 0 25%;
+  width: 50%;
+  margin: 0 25%
 }
 
 .model-link {
-  font-family: var(--font-sans-serif);
-  font-size: 10px;
+  font-family: Segoe UI Semibold, Open Sans, -apple-system, BlinkMacSystemFont,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-size: 12px;
+  align-content: center;
   text-align: center;
   user-select: none;
   cursor: default;
-  width: 40%;
-  margin: 0 25% 0 25%;
+  width: 50%;
+  margin: 0 35%;
 }
 
 a {

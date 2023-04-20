@@ -87,6 +87,7 @@
                 solo
                 single-line
                 hide-details
+                style="color-scheme: white;"
               ></v-select>
             </div>
           </div>
@@ -606,10 +607,11 @@ export default defineComponent({
 .webcam-panel {
   padding: 40px 20px;
   width: 70%;
-  margin-left: 20%;
+  margin: auto;
   margin-top: 30px;
-  background-color: white;
+  background-color: rgb(229, 237, 248);
   position: relative;
+  border-radius: 12px;
 }
 .webcam-container {
   border-radius: 5px;

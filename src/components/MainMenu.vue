@@ -53,12 +53,12 @@ const DEMO_INFO = [
     path: "mobilenet",
   },
   {
-    model: "squeezenet",
+    model: "Squeezenet",
     title: "SqueezeNet, trained on ImageNet",
     path: "squeezenet",
   },
   {
-    model: "mnist",
+    model: "MNIST",
     title: "MNIST",
     path: "mnist",
   },

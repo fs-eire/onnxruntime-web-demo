@@ -2,13 +2,11 @@
   <div>
     <!-- session Loading and Initializing Indicator -->
     <model-status
-      v-if="modelLoading || modelInitializing"
+      v-show="modelLoading || modelInitializing"
       :modelLoading="modelLoading"
       :modelInitializing="modelInitializing"
     ></model-status>
-    <v-container fluid
-      style="margin-left: 20%; width: 60%; padding: 30px"
-    >
+    <v-container style="margin: 0% 15% 0% 15%; width: auto">
       <!-- Utility bar to select session backend configs. -->
       <v-layout
         align-center
@@ -45,7 +43,7 @@
         </div>
         <!-- select input images -->
         <v-flex sm6 md4 align-center justify-center column fill-height>
-          <v-layout align-center>
+          <v-layout align-center style="width:120%;">
             <v-flex sm4>
               <v-select
                 v-model="imageURLSelect"
@@ -60,14 +58,15 @@
                 solo
                 single-line
                 hide-details
+                style="width: 100%; margin-left:30%"
               ></v-select>
             </v-flex>
-            <v-flex class="text-xs-center"> or </v-flex>
+            <v-flex class="text-xs-center" style="width: auto; margin-left: 10%;"> or </v-flex>
             <label
               :disabled="modelLoading || modelInitializing || modelLoadingError"
               class="inputs"
             >
-              <div>
+              <div style="width:auto; align-self: auto;">
                 <span>UPLOAD IMAGE</span>
               </div>
               <input
@@ -94,7 +93,7 @@
             ></canvas>
           </v-flex>
         </v-flex>
-
+        <v-spacer></v-spacer>
         <v-flex sm6 md4 column fill-height class="output-container">
           <v-flex class="inference-time-class">
             <span class="inference-time">Inference Time: </span>
@@ -449,16 +448,15 @@ export default defineComponent({
   padding: 10px 10px;
 }
 .image-panel {
-  padding: 80px 0px 80px 0px;
+  padding: 30px 0px 30px 0px;
   margin: auto;
-  background-color: white;
-  position: relative;
-  width: 85%;
+  background-color: rgb(229, 237, 248);
+  width: 100%;
   height: 100%;
+  border-radius: 12px;
   & .loading-indicator {
-    position: absolute;
+    position: relative;
     top: 5px;
-    left: 5px;
   }
 }
 
@@ -468,15 +466,14 @@ export default defineComponent({
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
   align-items: center;
-  border-radius: 2px;
+  border-radius: 12px;
   display: inline-flex;
   height: 40px;
-  font-size: 14px;
+  font-size: 16px;
   transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
   padding: 0 16px;
 }
 
-.inputs:focus,
 .inputs:hover {
   position: relative;
   background: rgba(0, 0, 0, 0.12);
@@ -494,9 +491,11 @@ export default defineComponent({
 .canvas-container {
   position: relative;
   text-align: center;
+  margin-left: 20%;
   & #input-canvas {
     background: #eeeeee;
     margin-top: 40px;
+    border-radius: 12px;
   }
 }
 
@@ -504,8 +503,8 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-
+  justify-content: left;
+  margin-right: 5%;
   & .inference-time-class {
     display: flex;
     flex-direction: row;
@@ -524,9 +523,10 @@ export default defineComponent({
     & .inference-time-value {
       color: var(--color-blue);
       text-align: left;
-      margin-left: 20px;
+      margin-left: 10%;
       font-family: var(--font-sans-serif);
-      font-size: 20px;
+      font-size: 18px;
+      width: 200px;
     }
   }
 
