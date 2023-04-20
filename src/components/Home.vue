@@ -1,7 +1,7 @@
 <template>
   <div class="demo home text-xs-center">
     <v-img class="banner" :src="getImageSource()">
-      <v-container class="onnx-wrapper" >
+      <v-container class="onnx-wrapper" column justify-center align-center>
         <v-layout class="onnx-page" >
           <v-slot class="onnx">ONNX Runtime Web</v-slot>
           <v-slot class="run-onnx">Run ONNX model in the browser</v-slot>

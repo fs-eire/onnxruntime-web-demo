@@ -1,17 +1,13 @@
 <template>
   <div id="app">
     <v-app>
-      <v-navigation-drawer v-model="showNav" absolute fixed floating app>
-        <main-menu :currentView="currentView()"></main-menu>
+      <v-navigation-drawer v-model="showNav" absolute floating app>
+        <MainMenu :currentView="currentView()"></MainMenu>
       </v-navigation-drawer>
       <v-toolbar app dark flat color="primary">
-        <v-toolbar-side-icon
-          @click.stop="showNav = !showNav"
-        ></v-toolbar-side-icon>
+        <v-app-bar-nav-icon @click.stop="toggleBar()"></v-app-bar-nav-icon>
         <v-toolbar-title>{{ currentTitle() }}</v-toolbar-title>
-        <v-spacer></v-spacer>
       </v-toolbar>
-
       <v-content>
         <v-container
           @click.stop="showNav = false"
@@ -29,7 +25,6 @@
                 column
                 align-center
                 fill-height
-                target="_blank"
                 class="model-link"
                 :href="currentLink()"
                 >{{ currentLink() }}</a
@@ -44,27 +39,31 @@
 
 <script lang="ts">
 import MainMenu from "./components/MainMenu.vue";
+
 import {
   DEMO_TITLES,
   DEMO_DESCRIPTIONS,
   DEMO_MODEL_LINKS,
 } from "./data/demo-titles";
 
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
   components: { MainMenu },
   setup() {
-    let showNav: boolean = false;
-    let hasWebGL: boolean = true;
+    const showNav = ref(false);
+    const hasWebGL: boolean = true;
 
     const $route = useRouter();
 
     function currentView() {
       const path = $route.currentRoute.value.path;
-      // console.log(path);
       return path.replace(/^\//, "") || "home";
+    }
+
+    function toggleBar() {
+      showNav.value = !showNav.value;
     }
 
     function currentTitle() {
@@ -101,6 +100,7 @@ export default defineComponent({
       currentTitle,
       currentDescription,
       currentLink,
+      toggleBar,
     };
   },
 });
@@ -118,6 +118,7 @@ export default defineComponent({
   background: linear-gradient(0deg, #cccccc, #f0f0f0) !important;
   color: var(--color-darkgray);
 }
+
 
 footer {
   background: #cccccc !important;

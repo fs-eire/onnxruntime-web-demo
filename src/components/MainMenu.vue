@@ -74,17 +74,16 @@ const DEMO_INFO = [
   }
 ];
 
-// @Component
-// export default class MainMenu extends Vue {
 export default defineComponent({
   name: 'MainMenu',
   props: {
     currentView: { type: String, required: true, default: "home" },
   },
-  setup(props) {
-    let demoInfo: Array<{ model: string; title: string; path: string }> = DEMO_INFO;
+  setup() {
+    let demoInfo: Array<{ model: string; title: string; path: string }> =
+      DEMO_INFO;
     return{
-      demoInfo
+      demoInfo,
     };
   },
 });
