@@ -99,7 +99,7 @@ export default defineComponent({
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 15px;
 
   & img {
     max-width: 100%;

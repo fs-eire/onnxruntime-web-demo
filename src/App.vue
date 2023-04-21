@@ -129,12 +129,13 @@ footer {
     sans-serif;
   font-size: 16px;
   color: #69707a;
-  align-content: center;
   text-align: center;
   user-select: none;
   cursor: default;
-  width: 50%;
-  margin: 0 25%
+  width: 70%;
+  margin-left: 15%;
+  justify-content: center;
+  align-self: center;
 }
 
 .model-link {
@@ -142,12 +143,11 @@ footer {
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
   font-size: 12px;
-  align-content: center;
-  text-align: center;
   user-select: none;
   cursor: default;
-  width: 50%;
-  margin: 0 35%;
+  width: auto;
+  justify-content: center;
+  display: flex;
 }
 
 a {
