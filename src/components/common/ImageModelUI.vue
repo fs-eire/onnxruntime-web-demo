@@ -1,4 +1,4 @@
-<template>
+<template style="background:gray">
   <div>
     <!-- session Loading and Initializing Indicator -->
     <model-status
@@ -6,7 +6,7 @@
       :modelLoading="modelLoading"
       :modelInitializing="modelInitializing"
     ></model-status>
-    <v-container style="margin: 0% 15% 0% 15%; width: auto">
+    <v-container v-show="!modelLoading && !modelInitializing" fluid style="margin: 0% 15% 0% 15%; width: auto">
       <!-- Utility bar to select session backend configs. -->
       <v-layout
         align-center
@@ -36,9 +36,9 @@
           a different backend.
         </v-flex>
       </v-layout>
-      <v-layout row wrap justify-center class="image-panel elevation-1">
+      <v-layout column wrap justify-center class="image-panel elevation-1">
         <!-- model status -->
-        <div v-if="imageLoading || sessionRunning" class="loading-indicator">
+        <div v-if="imageLoading || sessionRunning" justify-center class="loading-indicator">
           <v-progress-circular indeterminate color="primary" />
         </div>
         <!-- select input images -->
@@ -58,7 +58,7 @@
                 solo
                 single-line
                 hide-details
-                style="width: 100%; margin-left:30%"
+                style="width: 100%; margin-left:30%; border-radius: 12px;"
               ></v-select>
             </v-flex>
             <v-flex class="text-xs-center" style="width: auto; margin-left: 10%;"> or </v-flex>

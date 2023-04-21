@@ -5,7 +5,7 @@
       :modelLoading="modelLoading"
       :modelInitializing="modelInitializing"
     ></modelStatus>
-    <v-container fluid style="margin-left: 25%; width: 50%; padding: 30px">
+    <v-container v-show="!modelLoading && !modelInitializing" fluid style="margin-left: 25%; width: 50%; padding: 30px">
       <!-- Utility bar to select session backend configs. -->
       <v-layout
         justify-center
@@ -350,7 +350,7 @@ export default defineComponent({
   position: relative;
 
   & .loading-indicator {
-    position: absolute;
+    align-content: center;
     top: 5px;
     left: 5px;
   }

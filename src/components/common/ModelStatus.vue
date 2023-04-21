@@ -38,15 +38,18 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-layout justify-start align-center column class="model-status-background">
-    <div class="model-status">{{ message() }}</div>
-    <v-flex>
+  <v-layout class="model-status-background">
+    <v-span>
+      <div class="model-status">{{ message() }}</div>
       <v-progress-circular
         v-show="modelLoading || modelInitializing"
         indeterminate
+        justify-center
+        flex
+        style="justify: center; align-self: center;"
         color="primary"
       />
-    </v-flex>
+    </v-span>
   </v-layout>
 </template>
 
@@ -54,8 +57,7 @@ export default defineComponent({
 @import "../../variables.css";
 
 .model-status-background {
-  position: absolute;
-  z-index: 2;
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: whitesmoke;

@@ -5,7 +5,7 @@
       :modelLoading="modelLoading"
       :modelInitializing="modelInitializing"
     ></model-status>
-    <v-container fluid>
+    <v-container fluid v-show="!modelLoading && !modelInitializing">
       <!-- Utility bar to select session backend configs. -->
       <v-layout
         justify-center
@@ -602,7 +602,9 @@ export default defineComponent({
 
 .ui-container {
   font-family: var(--font-sans-serif);
-  margin-bottom: 30px;
+  margin-bottom: 100px;
+  bottom: 0;
+  position: fixed;
 }
 .webcam-panel {
   padding: 40px 20px;

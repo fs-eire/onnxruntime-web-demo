@@ -16,7 +16,7 @@
           class="content-panel"
         >
           <div class="demo">
-            <div class="ui-container">
+            <div  class="ui-container">
               <router-view :hasWebGL="hasWebGL"></router-view>
               <v-layout column align-center fill-height class="footer-label">
                 {{ currentDescription() }}
@@ -127,7 +127,7 @@ footer {
   font-family: Segoe UI Semibold, Open Sans, -apple-system, BlinkMacSystemFont,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   color: #69707a;
   text-align: center;
   user-select: none;
