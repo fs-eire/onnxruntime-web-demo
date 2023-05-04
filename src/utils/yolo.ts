@@ -1,6 +1,6 @@
 // Heavily derived from YAD2K (https://github.com/ModelDepot/tfjs-yolo-tiny-demo)
 
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 
 import classNames from '../data/yolo_classes';
 

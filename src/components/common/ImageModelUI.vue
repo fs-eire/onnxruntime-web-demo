@@ -1,4 +1,4 @@
-<template style="background:gray">
+<template >
   <div>
     <!-- session Loading and Initializing Indicator -->
     <model-status
@@ -42,9 +42,9 @@
           <v-progress-circular indeterminate color="primary" />
         </div>
         <!-- select input images -->
-        <v-flex sm6 md4 align-center justify-center column fill-height>
+        <v-flex sm6 md4 justify-left fill-height>
           <v-layout align-center style="width:120%;">
-            <v-flex sm4>
+            <v-flex sm4 style="width=40%">
               <v-select
                 v-model="imageURLSelect"
                 :disabled="
@@ -61,7 +61,7 @@
                 style="width: 100%; margin-left:30%; border-radius: 12px;"
               ></v-select>
             </v-flex>
-            <v-flex class="text-xs-center" style="width: auto; margin-left: 10%;"> or </v-flex>
+            <v-flex class="text-xs-center" style="width: 20%; margin-left: 5%;"> or </v-flex>
             <label
               :disabled="modelLoading || modelInitializing || modelLoadingError"
               class="inputs"
@@ -181,8 +181,15 @@ export default defineComponent({
     let backendSelectList: Array<{ text: string; value: string }> = 
     [
       { text: "GPU-WebGL", value: "webgl" },
+      { text: "GPU-WebGPU", value: "webgpu" },
       { text: "CPU-WebAssembly", value: "wasm" },
     ];
+
+    if (!("gpu" in navigator)) {
+      backendSelectList.splice(1, 1);
+      console.log("WebGPU is not supported. Enable chrome://flags/#enable-unsafe-webgpu flag.");
+    }
+
     let modelLoading = ref(true);
     let modelInitializing = ref(true);
     let modelLoadingError = ref(false);
@@ -233,11 +240,14 @@ export default defineComponent({
           currentStatus.value = "webgl session set";
         } else if (sessionBackend.value === "wasm") {
           currentStatus.value = "entered wasm session";
-          console.log("entered wasm session");
           cpuSession = await runModelUtils.createModelCpu(modelFile);
-          console.log("cpuSession - " + cpuSession);
           session = cpuSession;
           currentStatus.value = "wasm session set";
+        } else if (sessionBackend.value === "webgpu") {
+          currentStatus.value = "entered WebGPU session";
+          cpuSession = await runModelUtils.createModelWebGpu(modelFile);
+          session = cpuSession;
+          currentStatus.value = "WebGPU session set";
         }
       } catch (e) {
         modelLoading.value = false;

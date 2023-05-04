@@ -1,5 +1,5 @@
 
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 import {ShapeUtil, TypedArrayUtil} from './yoloPostprocessUtils';
 
 export function concat(x: Tensor[], axis: number): Tensor {

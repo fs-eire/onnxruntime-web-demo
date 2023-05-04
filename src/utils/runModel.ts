@@ -1,18 +1,20 @@
-import {InferenceSession, Tensor, env} from 'onnxruntime-web';
+import {InferenceSession, Tensor, env} from 'onnxruntime-web/webgpu';
 
 function init() {
   env.wasm.wasmPaths = import.meta.env.BASE_URL;
+  // env.logLevel = 'verbose';
 }
 
 export async function createModelCpu(model: ArrayBuffer): Promise<InferenceSession> {
-  console.log("prior init");
   init();
-  console.log("prior create wasm");
   return await InferenceSession.create(model, {executionProviders: ['wasm']});
+}
+export async function createModelWebGpu(model: ArrayBuffer): Promise<InferenceSession> {
+  init();
+  return await InferenceSession.create(model, {executionProviders: ['webgpu'], enableProfiling: true});
 }
 export async function createModelGpu(model: ArrayBuffer): Promise<InferenceSession> {
   init();
-  console.log("prior create");
   return await InferenceSession.create(model, {executionProviders: ['webgl']});
 }
 

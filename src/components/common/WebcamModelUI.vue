@@ -219,8 +219,14 @@ export default defineComponent({
     let modelFile: ArrayBuffer = new ArrayBuffer(0);
     let backendSelectList: Array<{ text: string; value: string }> = [
       { text: "GPU-WebGL", value: "webgl" },
+      { text: "GPU-WebGPU", value: "webgpu" },
       { text: "CPU-WebAssembly", value: "wasm" },
     ];
+
+    if (!("gpu" in navigator)) {
+      backendSelectList.splice(1, 1);
+      console.log("WebGPU is not supported. Enable chrome://flags/#enable-unsafe-webgpu flag.");
+    }
 
     onMounted(() => {
       webcamElement = document.getElementById("webcam") as HTMLVideoElement;
@@ -262,6 +268,9 @@ export default defineComponent({
           session = gpuSession;
         } else if (sessionBackend.value === "wasm") {
           cpuSession = await runModelUtils.createModelCpu(modelFile);
+          session = cpuSession;
+        } else if (sessionBackend.value === "webgpu") {
+          cpuSession = await runModelUtils.createModelWebGpu(modelFile);
           session = cpuSession;
         }
       } catch (e) {

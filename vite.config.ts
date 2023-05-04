@@ -24,7 +24,15 @@ export default defineConfig({
           dest: normalizePath(path.join(destFolder))
         },
         {
+          src: normalizePath(path.join(srcFolder, 'ort-wasm-simd.jsep.wasm')),
+          dest: normalizePath(path.join(destFolder))
+        },
+        {
           src: normalizePath(path.join(srcFolder, 'ort-wasm-threaded.wasm')),
+          dest: normalizePath(path.join(destFolder))
+        },
+        {
+          src: normalizePath(path.join(srcFolder, 'ort-wasm-threaded.jsep.wasm')),
           dest: normalizePath(path.join(destFolder))
         },
         {

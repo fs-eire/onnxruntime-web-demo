@@ -1,4 +1,4 @@
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 
 import {binaryOp} from './binary-op';
 import {concat as concatImpl} from './concat';

@@ -1,7 +1,7 @@
 // Important: Run this file in Node.js
 // If any utility function fails the test, it will throw an exception
 
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 import * as tensorTransformUtils from './yoloPostprocess';
 
 scalarTest();

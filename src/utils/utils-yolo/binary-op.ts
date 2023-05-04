@@ -1,5 +1,5 @@
 import ndarray from 'ndarray';
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 
 import type {NumberDataType, NumberOrBoolType} from './yoloPostprocess';
 import {BroadcastUtil} from './yoloPostprocessUtils';

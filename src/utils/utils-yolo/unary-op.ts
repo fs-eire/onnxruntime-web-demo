@@ -1,4 +1,4 @@
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 import {TypedArrayUtil} from './yoloPostprocessUtils';
 
 export function sigmoid(input: Tensor): Tensor {

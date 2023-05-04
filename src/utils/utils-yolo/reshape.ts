@@ -1,4 +1,4 @@
-import {Tensor} from 'onnxruntime-web';
+import {Tensor} from 'onnxruntime-web/webgpu';
 import {ShapeUtil, TypedArrayUtil} from './yoloPostprocessUtils';
 
 export function reshape(x: Tensor, shape: ReadonlyArray<number>): Tensor {
