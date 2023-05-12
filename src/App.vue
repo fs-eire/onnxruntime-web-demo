@@ -8,7 +8,7 @@
         <v-app-bar-nav-icon @click.stop="toggleBar()"></v-app-bar-nav-icon>
         <v-toolbar-title>{{ currentTitle() }}</v-toolbar-title>
       </v-toolbar>
-      <v-content>
+      <v-layout>
         <v-container
           @click.stop="showNav = false"
           fluid
@@ -32,7 +32,7 @@
             </div>
           </div>
         </v-container>
-      </v-content>
+      </v-layout>
     </v-app>
   </div>
 </template>

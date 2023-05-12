@@ -94,7 +94,7 @@
           </v-flex>
         </v-flex>
         <v-spacer></v-spacer>
-        <v-flex sm6 md4 column fill-height class="output-container">
+        <v-layout sm6 md4 column fill-height class="output-container">
           <v-flex class="inference-time-class">
             <span class="inference-time">Inference Time: </span>
             <span v-if="inferenceTime > 0" class="inference-time-value"
@@ -129,7 +129,7 @@
               {{ Math.round(100 * outputClasses.value[i].probability) }}%
             </div>
           </div>
-        </v-flex>
+        </v-layout>
       </v-layout>
     </v-container>
   </div>

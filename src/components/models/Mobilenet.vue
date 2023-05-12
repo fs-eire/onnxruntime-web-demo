@@ -13,7 +13,7 @@
 import ndarray from "ndarray";
 import ops from "ndarray-ops";
 import ImageModelUI from "../common/ImageModelUI.vue";
-import { Tensor } from "onnxruntime-web";
+import { Tensor } from "onnxruntime-web/webgpu";
 import type { ClassResult } from "../../utils/imagenet";
 import { MOBILENET_IMAGE_URLS } from "../../data/sample-image-urls";
 import { imagenetUtils, mathUtils } from "../../utils/index";

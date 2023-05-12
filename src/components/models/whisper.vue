@@ -141,6 +141,11 @@ export default defineComponent({
                 latencyHint: "interactive",
                 sampleRate: kSampleRate,
             });
+
+            if (!context) {
+                throw new Error("no AudioContext, make sure domain has access to Microphone");
+            }
+
             logOutput.value = "";
             // progress = document.getElementById('progress');
             // progress!.style.width = "0%";
@@ -162,7 +167,7 @@ export default defineComponent({
             attention_mask:Int32Array;
             sess:InferenceSession|null;
 
-            async createSession(url:string){
+            async createSession(url:string, cb:Function){
                 const opt : InferenceSession.SessionOptions = {
                     executionProviders: ["wasm"],
                     logSeverityLevel: 3,
@@ -173,7 +178,10 @@ export default defineComponent({
                 modelFile = await response.arrayBuffer();
                 modelLoading.value = false;
                 modelInitializing.value = true;
-                this.sess = await runModelUtils.createModelCpu(modelFile, opt);
+                await runModelUtils.createModelCpu(modelFile, opt).then((s) => {
+                    this.sess = s;
+                    cb();
+                }, (e) => { cb(e); });
                 modelInitializing.value = false;
             }
 
@@ -188,12 +196,7 @@ export default defineComponent({
                 this.repetition_penalty = Float32Array.from({ length: 1 }, () => 1.);
                 this.attention_mask = Int32Array.from({ length: 1 * 80 * 3000 }, () => 0);
 
-                this.createSession(url);
-
-                InferenceSession.create(url).then((s) => {
-                    this.sess = s;
-                    cb();
-                }, (e) => { cb(e); })
+                this.createSession(url, cb);
             }
 
             async run(audio_pcm: Float32Array, beams = 1) {
@@ -344,22 +347,24 @@ export default defineComponent({
         // }
 
         log("loading model");
-        try {
-            sess = new Whisper(MODEL_FILEPATH, (e:string|undefined) => {
-                if (e === undefined) {
-                    log(`${MODEL_FILEPATH} loaded, ${env.wasm.numThreads} threads`);
-                    transcribing.value = false;
-                    modelLoading.value = false;
-                } else {
-                    log(`Error: ${e}`);
-                }
-            });
-            if (!context) {
-                throw new Error("no AudioContext, make sure domain has access to Microphone");
+
+        async function initSession(){
+            try {
+                sess = await new Whisper(MODEL_FILEPATH, (e:string|undefined) => {
+                    if (e === undefined) {
+                        log(`${MODEL_FILEPATH} loaded, ${env.wasm.numThreads} threads`);
+                        transcribing.value = false;
+                        modelLoading.value = false;
+                    } else {
+                        log(`Error: ${e}`);
+                    }
+                });
+            } catch (e) {
+                log(`Error: ${e}`);
             }
-        } catch (e) {
-            log(`Error: ${e}`);
         }
+        
+        initSession();
 
         async function handleMicClick(){
             if(recording.value){
