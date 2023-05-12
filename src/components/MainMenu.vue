@@ -71,6 +71,11 @@ const DEMO_INFO = [
     model: "Emotion Recognition",
     title: "Emotion Recognition",
     path: "emotion",
+  },
+  {
+    model: "whisper",
+    title: "whisper",
+    path: "whisper",
   }
 ];
 

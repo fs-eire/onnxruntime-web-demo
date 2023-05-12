@@ -4,6 +4,7 @@ export const DEMO_TITLES: { [key: string]: string } = {
   emotion: "FER+ Emotion, real-time emotion detection",
   YoLo: "Yolo, real-time object detection",
   MNIST: "MNIST, handwritten digit prediction",
+  whisper: "Whisper, real-time speech recognition",
 };
 
 export const DEMO_DESCRIPTIONS: { [key: string]: string } = {
@@ -15,6 +16,7 @@ export const DEMO_DESCRIPTIONS: { [key: string]: string } = {
     "FER+ Emotion, a deep convolutional neural network for emotion recognition in faces.",
   YoLo: "YOLO can detect multiple objects in an image and puts bounding boxes around these objects.",
   MNIST: "MNIST, handwritten digit prediction.",
+  whisper: "Whisper, real-time speech recognition.",
 };
 
 export const DEMO_MODEL_LINKS: { [key: string]: string } = {
@@ -27,4 +29,6 @@ export const DEMO_MODEL_LINKS: { [key: string]: string } = {
   YoLo: "https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/tiny-yolov2",
   MNIST:
     "https://github.com/onnx/models/tree/master/vision/classification/mnist",
+  whisper: "https://github.com/openai/whisper",
+
 };

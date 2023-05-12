@@ -5,8 +5,11 @@ function init() {
   // env.logLevel = 'verbose';
 }
 
-export async function createModelCpu(model: ArrayBuffer): Promise<InferenceSession> {
+export async function createModelCpu(model: ArrayBuffer, options?: InferenceSession.SessionOptions): Promise<InferenceSession> {
   init();
+  if(options !== undefined) {
+    return await InferenceSession.create(model, options);
+  }
   return await InferenceSession.create(model, {executionProviders: ['wasm']});
 }
 export async function createModelWebGpu(model: ArrayBuffer): Promise<InferenceSession> {

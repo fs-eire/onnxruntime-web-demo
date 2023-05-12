@@ -6,6 +6,7 @@ import MNIST from "../components/models/MNIST.vue";
 import MobileNet from "../components/models/Mobilenet.vue";
 import SqueezeNet from "../components/models/Squeezenet.vue";
 import YoLo from "../components/models/Yolo.vue";
+import whisper from "../components/models/whisper.vue";
 
 const routes = [
   {
@@ -39,9 +40,14 @@ const routes = [
     component: EmotionRecognition,
   },
   {
-    path: '/:pathMatch(.*)*',
-    redirect: "/"
+    path: '/whisper',
+    name: 'whisper',
+    component: whisper,
   },
+  // {
+  //   path: '/:pathMatch(.*)*',
+  //   redirect: "/"
+  // },
 ];
 
 const router = createRouter({

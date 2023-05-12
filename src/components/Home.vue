@@ -32,6 +32,7 @@ import mnistImage from "/assets/mnist.png";
 import yoloImage from "/assets/yolo.png";
 import emotionImage from "/assets/emotion.png";
 import backgroundImage from "/assets/background.png";
+import whipserImage from "/assets/whisper.png";
 
 const DEMO_INFO = [
   {
@@ -58,6 +59,11 @@ const DEMO_INFO = [
     title: "Emotion Recognition",
     path: "emotion",
     imagePath: emotionImage,
+  },
+  {
+    title: "whisper",
+    path: "whisper",
+    imagePath: whipserImage,
   },
 ];
 

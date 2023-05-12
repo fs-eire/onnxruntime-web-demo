@@ -39,7 +39,7 @@ export default defineComponent({
 
 <template>
   <v-layout class="model-status-background">
-    <v-span>
+    <v-container>
       <div class="model-status">{{ message() }}</div>
       <v-progress-circular
         v-show="modelLoading || modelInitializing"
@@ -49,7 +49,7 @@ export default defineComponent({
         style="justify: center; align-self: center;"
         color="primary"
       />
-    </v-span>
+    </v-container>
   </v-layout>
 </template>
 
